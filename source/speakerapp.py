@@ -90,35 +90,35 @@ def list_station():
     return ",".join(stationList)
 
 @app.route('/list_nature_stations/', methods=['GET'])
-def list_station():
+def list_nature_station():
     stationsDict = app.config["NATURE"]
     stationList = list(stationsDict.keys()) 
     stationList.sort()
     return ",".join(stationList)
 
 @app.route('/list_chill_stations/', methods=['GET'])
-def list_station():
+def list_chill_station():
     stationsDict = app.config["CHILL"]
     stationList = list(stationsDict.keys()) 
     stationList.sort()
     return ",".join(stationList)
 
 @app.route('/list_talk_stations/', methods=['GET'])
-def list_station():
+def list_talk_station():
     stationsDict = app.config["TALK"]
     stationList = list(stationsDict.keys()) 
     stationList.sort()
     return ",".join(stationList)
 
 @app.route('/list_upbeat_stations/', methods=['GET'])
-def list_station():
+def list_upbeat_station():
     stationsDict = app.config["UPBEAT"]
     stationList = list(stationsDict.keys()) 
     stationList.sort()
     return ",".join(stationList)
 
 @app.route('/list_bible_stations/', methods=['GET'])
-def list_station():
+def list_bible_station():
     stationsDict = app.config["BIBLE"]
     stationList = list(stationsDict.keys()) 
     stationList.sort()
