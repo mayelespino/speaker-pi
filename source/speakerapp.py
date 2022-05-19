@@ -71,7 +71,7 @@ def util_date_time():
 #
 # Play a station
 #
-@app.route('/play_station/<station>', methods=['POST'])
+@app.route('/play_station/<station>/', methods=['POST'])
 def play_station(station):
     dict = app.config["STATIONS"]
     if not dict.has_key(station):
@@ -85,41 +85,6 @@ def play_station(station):
 @app.route('/list_stations/', methods=['GET'])
 def list_station():
     stationsDict = app.config["STATIONS"]
-    stationList = list(stationsDict.keys()) 
-    stationList.sort()
-    return ",".join(stationList)
-
-@app.route('/list_nature_stations/', methods=['GET'])
-def list_nature_station():
-    stationsDict = app.config["NATURE"]
-    stationList = list(stationsDict.keys()) 
-    stationList.sort()
-    return ",".join(stationList)
-
-@app.route('/list_chill_stations/', methods=['GET'])
-def list_chill_station():
-    stationsDict = app.config["CHILL"]
-    stationList = list(stationsDict.keys()) 
-    stationList.sort()
-    return ",".join(stationList)
-
-@app.route('/list_talk_stations/', methods=['GET'])
-def list_talk_station():
-    stationsDict = app.config["TALK"]
-    stationList = list(stationsDict.keys()) 
-    stationList.sort()
-    return ",".join(stationList)
-
-@app.route('/list_upbeat_stations/', methods=['GET'])
-def list_upbeat_station():
-    stationsDict = app.config["UPBEAT"]
-    stationList = list(stationsDict.keys()) 
-    stationList.sort()
-    return ",".join(stationList)
-
-@app.route('/list_bible_stations/', methods=['GET'])
-def list_bible_station():
-    stationsDict = app.config["BIBLE"]
     stationList = list(stationsDict.keys()) 
     stationList.sort()
     return ",".join(stationList)
