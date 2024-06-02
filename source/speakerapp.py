@@ -2,6 +2,7 @@ from flask import Flask
 import subprocess 
 import logging
 import sys
+from gtts import gTTS
 
 app = Flask(__name__)
 app.config.from_object("config.ProductionConfig")
@@ -117,6 +118,24 @@ def list_station():
     stationList.sort()
     logger.info("list_station")
     return ",".join(stationList)
+
+#
+# Hey Google
+#
+@app.route('/heygoogle/<command>/', methods=['POST'])
+def hey_google(command):
+	if command == "what_time_is_it":
+		tts = gTTS(text="hey google, what time is it?", lang='en')
+	elif command ==  "what_is_the_wather_outside":
+		tts = gTTS(text="hey google, what is the weather outside?", lang='en')
+	elif command ==  "play_flamenco_music":
+		tts = gTTS(text="hey google, play flamenco music", lang='en')
+	elif command ==  "news":
+		print("NEWS")
+		tts = gTTS(text="hey google, news", lang='en')
+		tts.save("/mnt/ramdisk/tmp.mp3")
+		os.system("mplayer /mnt/ramdisk/tmp.mp3")
+	return "OK"
 
 #
 # MAIN
