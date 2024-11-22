@@ -68,5 +68,32 @@ This is an example of what the crontab file (in the speaker.local pi) looks like
 0 18 * * * curl -X POST http://localhost:5000/mute/
 ```
 
+
+# install and enable systemctl speaker-start.service
+
+content of speaker-startup.service
+
+```
+[Unit]
+Description=Sensor Flask App
+
+[Service]
+ExecStart=/home/pi/sensor-pi/source/start.sh
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable speaker-startup
+sudo systemctl status speaker-startup
+sudo systemctl start speaker-startup
+```
+
+
 # Links
 - https://github.com/bobrathbone/piradio/blob/master/station.urls
